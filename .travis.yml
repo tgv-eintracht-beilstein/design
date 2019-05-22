@@ -10,7 +10,7 @@ script:
   - ./scripts/convertDocsToPDF.sh Dokumente $CONVERTAPISECRET
 env:
   global:
-    secure: {"lots-of-seemingly-random-characters"}    
+    secure: {"lots-of-seemingly-random-characters"}
 deploy:
   provider: pages
   skip-cleanup: false
