@@ -11,15 +11,23 @@ FILES=${INPUT_FOLDER}/*.${FILETYPE}
 
 mkdir -p $OUTPUT_FOLDER
 
-for filename in $FILES; do
-  output=${filename/\.$FILETYPE/}
+echo Folder dist before
+ls dist
+
+for input in $FILES; do
+  output=${input/\.$FILETYPE/}
   output=${output/$@/$OUTPUT_FOLDER}.pdf
+
+  echo Converting '${input}' to '${output}'
 
   curl \
   -s \
   -F "PageSize=a4" \
   -F "PdfAuthor=TGV Eintracht Beilstein 1823 e.V." \
-  -F "File=@./${filename}" \
+  -F "File=@./${input}" \
   ${CONVERTAPI} \
   > $output
 done
+
+echo Folder dist before
+ls dist

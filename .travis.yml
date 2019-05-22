@@ -8,6 +8,8 @@ before_script:
   - echo "https://${GITHUB_TOKEN}:@github.com" > .git/credentials
 script:
   - ./scripts/convertDocsToPDF.sh Dokumente $CONVERTAPISECRET
+after_script:
+  - ls dist
 env:
   global:
     secure: {"lots-of-seemingly-random-characters"}
