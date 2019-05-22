@@ -16,9 +16,10 @@ ls dist
 
 for input in $FILES; do
   output=${input/\.$FILETYPE/}
-  output=${output/$@/$OUTPUT_FOLDER}.pdf
+  output=${output/$INPUT_FOLDER/$OUTPUT_FOLDER}
+  output=$output.pdf
 
-  echo Converting '${input}' to '${output}'
+  echo Converting $input to $output
 
   curl \
   -s \
