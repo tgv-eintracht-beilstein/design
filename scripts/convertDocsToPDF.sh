@@ -1,7 +1,7 @@
 #!/bin/bash
+
 INPUT_FOLDER=$1
 SECRET=$2
-
 ####
 
 OUTPUT_FOLDER=dist
@@ -10,9 +10,6 @@ CONVERTAPI=https://v2.convertapi.com/convert/docx/to/pdf\?Secret\=${SECRET}\&dow
 FILES=${INPUT_FOLDER}/*.${FILETYPE}
 
 mkdir -p $OUTPUT_FOLDER
-
-echo Folder dist before
-ls dist
 
 for input in $FILES; do
   output=${input/\.$FILETYPE/}
@@ -30,5 +27,5 @@ for input in $FILES; do
   > $output
 done
 
-echo Folder dist before
+echo Generated Files:
 ls dist
