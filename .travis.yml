@@ -1,21 +1,21 @@
-language: node_js
-node_js:
-  - 'stable'
-before_script:
-  - git config --global user.email "mail@bernhardrode.de"
-  - git config --global user.name "Travis-CI"
-  - git config credential.helper "store --file=.git/credentials"
-  - echo "https://${GITHUB_TOKEN}:@github.com" > .git/credentials
-script:
-  - ./scripts/convertDocsToPDF.sh Dokumente $CONVERTAPISECRET
-env:
-  global:
-    secure: {"lots-of-seemingly-random-characters"}
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  local_dir: dist
-  keep-history: false
-  on:
-    branch: master
+# language: node_js
+# node_js:
+#   - 'stable'
+# before_script:
+#   - git config --global user.email "mail@bernhardrode.de"
+#   - git config --global user.name "Travis-CI"
+#   - git config credential.helper "store --file=.git/credentials"
+#   - echo "https://${GITHUB_TOKEN}:@github.com" > .git/credentials
+# script:
+#   - ./scripts/convertDocsToPDF.sh Dokumente $CONVERTAPISECRET
+# env:
+#   global:
+#     secure: {"lots-of-seemingly-random-characters"}
+# deploy:
+#   provider: pages
+#   skip-cleanup: true
+#   github-token: $GITHUB_TOKEN
+#   local_dir: dist
+#   keep-history: false
+#   on:
+#     branch: master
