@@ -12,8 +12,10 @@ jobs:
         uses: actions/checkout@v2
       - name: 🚧 Build
         run: ./scripts/convertDocsToPDF.sh Dokumente ${{ secrets.CONVERTAPISECRET }}
-      - name: 🏛 Copy
+      - name: 🏛 Copy Generated Files
         run: cp Dokumente/* dist/
+      - name: ✍️ Create HTML Page
+        run: cp index.html/* dist/
       - name: 🚀 Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
